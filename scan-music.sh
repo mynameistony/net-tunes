@@ -7,7 +7,7 @@ ln -s $1
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 id=0
-for file in $(find $1 | grep "\.mp3$")
+for file in $(find $1 | grep "\.[m][4p][a3]$")
 do
 	title=$(id3v2 -R "$file" | grep "TIT" -m 1 | sed s/"TIT[0-9]: "//g)
 
