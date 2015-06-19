@@ -37,3 +37,7 @@ function checkEnded(){
 function setTitle(newTitle){
 	document.getElementById("title").innerHTML = newTitle;
 }
+
+function gotoPage(newPage){
+	window.location = newPage;
+}
