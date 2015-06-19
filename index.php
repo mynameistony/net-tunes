@@ -23,4 +23,6 @@
 
 ?>
 <script>setInterval("checkEnded()",1000)</script>
+<script>saveNextSong()</script>
+<script>setShuffleButton()</script>
 </body>

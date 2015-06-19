@@ -19,7 +19,7 @@ fi
 
 echo "<p>Artist: <b>$artist</b>"
 echo "<p>Track: <b>$title</b>"
-echo "<p>ID: <b id=thisid>$1/$songcount</b>"
+echo "<p>ID: <b id=thisid>$1/<b id=songcount>$songcount</b></b>"
 lastsongid=$(( $1 - 1 ))
 nextsongid=$(( $1 + 1 ))
 
@@ -48,10 +48,11 @@ if [ "$prevTrack" == "" ]
 	then
 	prevTrack="Unknown Track"
 fi
-echo "<p>Previous Song: <b>$prevTrack</b> by <b>$prevArtist</b></p>"
-echo "<p>Next Song: <b>$nextTrack</b> by <b>$nextArtist</b></p>"
+echo "<p id=prevSong>Previous Song: <b>$prevTrack</b> by <b>$prevArtist</b></p>"
+echo "<p id=nextSong>Next Song: <b>$nextTrack</b> by <b>$nextArtist</b></p>"
 
 echo "<p>"
+echo "<p><button class=button onclick=toggleShuffle() id=shuffleButton>Toggle Shuffle</button><p>"
 echo "<button class=button onclick=play() id=playButton>Pause</button><p>"
 echo "<button class=half-button onclick=setSong($lastsongid) id=prevButton>Previous<br></button>"
 echo "<button class=half-button onclick=setSong($nextsongid) id=nextButton>Next</button>"
