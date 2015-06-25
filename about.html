@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+<link rel="stylesheet" href="/style.css">
+<body id="body">
+<title id="title">About this site</title>
+<h1>About this site</h1>
+<p>It uses a BASH script to scan a given folder for any audio files, creating a simple <a href=/data>database</a> based on found metadata (artist/title)</p>
+
+<p>For each found artist, <a href=/data/artists>a folder is created</a> and <a href="/data/artists/Bob Seger">any titles from that artist are placed into their folder</a>. <a href="/data/artists/Bob Seger/Night Moves">Within each file</a> is a reference to an ID. If no metadata is found it is labeled "Unknown Artist/Unknown Track" (There are a lot)</p>
+
+<p><a href=/data/id>A folder</a> is created containing <a href="/data/id/420">a file for each ID</a>, which contains <a href="/Music/Grease%20Soundtrack/02%20Summer%20Lovin'.m4a">a link to the actual file</a></p>
+
+<p>Once our "database" is established, we can get to the webpage</p>
+
+<p>Luckily HTML5 provides a nice way to play audio in webpages, it only needs a URL of an audio and everything else can completely customized</p>
+
+<p>Basically your browser point to a songs ID, my computer looks it up and outputs the URL of the actual mp3, allowing your browser to play it. In fact clicking download just takes you directly to the URL</p>
+
+<p>Thats really all that needs to happen on the backend, so the bookmarking and navigation is all handled by your browser</p>
+
+<p>This site uses cookies to keep track of:
+<ol>How many bookmarks you have</ol>
+<ol>Each bookmarks artist/track/title</ol>
+<ol>Whether or not shuffle is on</ol>
+
+This data is only stored on YOUR computer.
+</p>
+
+<p>
+	However, every page visited and therefore song played, is added to the server logs automatically, along with other information automatically sent with your request. This information is not personally identifiable and will probably never even be seen.
+</p>
+
+<p>
+	The renaming feature simply asks for a new title/artist, then calls a script with the id/artist/title combination that looks up the file associated with the ID, then calls a program to set the metadata to the given artist/title.
+</p>
+
+<p>
+	Since that will then throw off the database, causing the new artist/title to not be listed. So, the database is refreshed every 10 minutes :)
+</p>

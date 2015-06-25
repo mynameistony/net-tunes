@@ -10,16 +10,20 @@ artist=$(id3v2 -R ".$file" | grep "TPE" -m 1 | sed s/"TPE[0-9]: "//g)
 songcount=$(ls data/id/ | wc -l)
 if [ "$artist" == "" ]
 	then
-	artist="Unknown Aritst"
+	artist="Unknown Artist"
 fi
 if [ "$title" == "" ]
 	then
 	title="Unknown Track"
 fi
 
-echo "<p>Artist: <b>$artist</b>"
-echo "<p>Track: <b>$title</b>"
-echo "<p>ID: <b id=thisid>$1/<b id=songcount>$songcount</b></b>"
+
+
+echo "<p><button class=half-button onclick=bookmarkSong()>Bookmark Song</button>"
+echo "<button class=half-button onclick=renameSong()>Rename Song</button></p>"
+echo "<p>Artist: <b id=thisArtist>$artist</b>"
+echo "<p>Track: <b id=thisTrack>$title</b>"
+echo "<p>ID: <b id=thisid>$1</b>/<b id=songcount>$songcount</b>"
 lastsongid=$(( $1 - 1 ))
 nextsongid=$(( $1 + 1 ))
 
@@ -52,10 +56,10 @@ echo "<p id=prevSong>Previous Song: <b>$prevTrack</b> by <b>$prevArtist</b></p>"
 echo "<p id=nextSong>Next Song: <b>$nextTrack</b> by <b>$nextArtist</b></p>"
 
 echo "<p>"
-echo "<p><button class=button onclick=toggleShuffle() id=shuffleButton>Toggle Shuffle</button><p>"
 echo "<button class=button onclick=play() id=playButton>Pause</button><p>"
 echo "<button class=half-button onclick=setSong($lastsongid) id=prevButton>Previous<br></button>"
 echo "<button class=half-button onclick=setSong($nextsongid) id=nextButton>Next</button>"
+echo "<p><button class=button onclick=toggleShuffle() id=shuffleButton>Toggle Shuffle</button><p>"
 echo "</p>"
 echo "<p><button class=button onclick=gotoPage('$link')>Download</button>"
 echo "<script>setTitle('$title by $artist')</script>"

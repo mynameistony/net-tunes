@@ -1,8 +1,10 @@
 #!/bin/bash
 
-cd $HOME/pandora-ng
+cd /home/tony/pandora-ng
 
 ln -s $1
+
+folder=$(echo "$1" | grep "/[-A-Za-z0-9_ ]*/$" -o)
 
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
@@ -22,7 +24,7 @@ do
 		then
 		artist="Unknown Artist"
 	fi
-	link=$(echo $file | grep "/Music/.*$" -o | sed s/" "/%20/g)
+	link=$(echo $file | grep "$folder.*$" -o | sed s/" "/%20/g)
 	
 	mkdir -p data/id
 	touch data/id/$id
