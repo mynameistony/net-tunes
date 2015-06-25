@@ -187,6 +187,7 @@ function bookmarkSong(){
 	setCookie(thisIdCookie,thisid);
 	setCookie(thisLinkCookie,thisLink);
 	setCookie("count",count);
+	appendBookmarkCount();
 
 	//alert("Setting bookmark #" + count + ":" + thisid + ":" + thisArtist + ":" + thisTrack);
 	//location.reload();
@@ -271,7 +272,6 @@ function renameSong(){
 	if(newTitle != null){
 		if(newTitle != ""){
 			var newArtist = prompt("Enter New Artist", artist);
-
 			if(newArtist != null){
 				if(newArtist != ""){
 					track = newTitle.replace(" ", "%20");
@@ -298,12 +298,16 @@ function renameSong(){
 }
 
 function searchLyrics(){
-	var title = document.getElementById("thisTrack").innerHTML;
-	var artist = document.getElementById("thisArtist").innerHTML;
+	var title = document.getElementById("thisTrack").innerHTML.replace(" ","+");
+	var artist = document.getElementById("thisArtist").innerHTML.replace(" ", "+");
 
-	if(title == "Unknown Track"){
+	if(title == "Unknown+Track"){
 		alert("How do you expect to find lyrics for this?");
 		return;
 	}
-	window.location = "http://search.azlyrics.com/search.php?q=" + title.replace(" ","+") + "+" + artist.replace(" ", "+");
+	if(artist == "Unknown+Artist"){
+		window.open("http://search.azlyrics.com/search.php?q=" + title);	
+	}else{
+		window.open("http://search.azlyrics.com/search.php?q=" + title + "+" + artist);
+	}
 }
