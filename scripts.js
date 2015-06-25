@@ -296,3 +296,14 @@ function renameSong(){
 	
 
 }
+
+function searchLyrics(){
+	var title = document.getElementById("thisTrack").innerHTML;
+	var artist = document.getElementById("thisArtist").innerHTML;
+
+	if(title == "Unknown Track"){
+		alert("How do you expect to find lyrics for this?");
+		return;
+	}
+	window.location = "http://search.azlyrics.com/search.php?q=" + title.replace(" ","+") + "+" + artist.replace(" ", "+");
+}

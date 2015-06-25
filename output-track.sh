@@ -21,6 +21,7 @@ fi
 
 echo "<p><button class=half-button onclick=bookmarkSong()>Bookmark Song</button>"
 echo "<button class=half-button onclick=renameSong()>Rename Song</button></p>"
+echo "<button class=button onclick=searchLyrics()>Find Lyrics</button>"
 echo "<p>Artist: <b id=thisArtist>$artist</b>"
 echo "<p>Track: <b id=thisTrack>$title</b>"
 echo "<p>ID: <b id=thisid>$1</b>/<b id=songcount>$songcount</b>"
