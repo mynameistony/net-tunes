@@ -5,7 +5,7 @@ IFS=$(echo -en "\n\b")
 
 if [ $# -eq 0 ]
 	then
-	echo "<form action=/ method=post>"
+	echo "<form action=/ method=post style='visibility:hidden' id=artists>"
 	for artist in $(ls data/artists)
 	do
 		echo "<input class=third-button type=submit name=artist value='$artist'>"

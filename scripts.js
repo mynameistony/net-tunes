@@ -311,3 +311,7 @@ function searchLyrics(){
 		window.open("http://search.azlyrics.com/search.php?q=" + title + "+" + artist);
 	}
 }
+
+function showArtists(){
+	document.getElementById("artists").style = "visibility:visible";
+}

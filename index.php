@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="/style.css">
 <body id="body">
 <title id="title">My Personal Pandora</title>
+<center>
  <?php
 	if(isset($_POST["artist"])){
 		$artist = $_POST["artist"];
@@ -31,22 +32,23 @@
 <?php
 	echo shell_exec("./output-random-track-button.sh");
 ?>
-
+<button class=button onclick="showArtists()">View Artists</button>
+<p><a href="/about.html">About This Site (READ ME!)</a></p>
+<p style="font-size: 30px;">Created by <a href="http://mynameistony.github.io">Tony Rogers</a> 2015</p>
+<p><a href="/settings.php">Settings</a></p>
 <?php
-
-	if(isset($_GET["view"])){
+		#echo shell_exec("cat ./lastscan.log");
+	#if(isset($_GET["view"])){
 		echo shell_exec("./output-artists.sh");
-	}
-	else{
-		echo "<p><form action=\"/\">";
-		echo "<input name=view class=button type=submit value=\"View Artists\">";
-		echo "</form></p>";
+	#}
+	#else{
+		#echo "<p><form action=\"/\">";
+		#echo "<input name=view class=button type=submit value=\"View Artists\">";
+		#echo "</form></p>";
 		
-	}
+	#}
 
 ?>
-<center><p><a href="/about.html">About this site</a></p>
-<p style="font-size: 30px;">Created by Tony Rogers 2015</p>
 </center>
 <script>setInterval("checkEnded()",1000)</script>
 <script>saveNextSong()</script>
